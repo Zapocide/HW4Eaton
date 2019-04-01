@@ -1,0 +1,36 @@
+Title: Homework for Eaton.
+Author: Oleksii Zaporozhets.
+
+1. General
+Developed application consists of 2 parts: server and client.
+Client part is responsible for generation measurements and sending them
+to the server on behalf of different clients. Each message contains
+client name and measurements result.
+Server part is responsible for getting messages from clients and store
+them in database accumulating number of messages from each client. It
+shows this number in real time.
+
+2. Compilation
+Server and client parts are compiled separately. To compile each of them,
+please run "make all" command from server and client folder respectively.
+As the result of compilation, 2 executables with the same names will be
+created. Program is written in ANSI C and C++ languages, so both gcc and
+g++ compilers are required to be intalled.
+
+3. Running
+To run application under Linux OS, please use "./<app_name> <port_num>",
+where <app_name> is "server" or "client" depending on which part you'd
+like to run, <port_num> is number of TCP port to send data (for the client)
+or listen (for the server) in decimal format.
+Note: server part has to be started before client.
+Note: application supports multiple clients, but only one server must exist
+at a time.
+
+4. Restrictions
+Server part supports up to 50 parallel connections. This number might be
+reduced by OS in case of lack of resources.
+Message length is limited to 256 bytes and client name to 253 bytes.
+Application provides only basic error checks, so please use correct input
+parameters. Please try "./<app_name>" for usage message.
+Application uses localhost address (127.0.0.1), so both parts are required
+to be run on the same host.
